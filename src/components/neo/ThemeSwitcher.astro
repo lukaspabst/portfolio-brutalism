@@ -1,0 +1,58 @@
+---
+---
+<div class="theme-switcher">
+  <button class="theme-btn" data-set-theme="neo" aria-label="Neo Theme" title="Neo Brutalism"></button>
+  <button class="theme-btn" data-set-theme="swiss" aria-label="Swiss Theme" title="Swiss International"></button>
+  <button class="theme-btn" data-set-theme="cyber" aria-label="Cyber Theme" title="Cyber Dark"></button>
+  <button class="theme-btn" data-set-theme="voltage" aria-label="Voltage Theme" title="High Voltage"></button>
+</div>
+
+<script>
+  const themes = ['neo', 'swiss', 'cyber', 'voltage'];
+  const buttons = document.querySelectorAll('[data-set-theme]');
+  
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // @ts-ignore
+      const theme = btn.dataset.setTheme;
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    });
+  });
+
+  // Set initial active state if needed, or just let the global script handle it
+</script>
+
+<style>
+  .theme-switcher {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: var(--color-bg);
+    border: var(--border-thick);
+    box-shadow: var(--shadow-hard);
+    z-index: 1000;
+  }
+
+  .theme-btn {
+    width: 24px;
+    height: 24px;
+    border: 2px solid black;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.1s ease;
+  }
+  
+  .theme-btn:hover {
+    transform: scale(1.1);
+  }
+
+  /* Preview Colors */
+  [data-set-theme="neo"] { background: #FFFDF5; }
+  [data-set-theme="swiss"] { background: #f0f2f5; }
+  [data-set-theme="cyber"] { background: #0a0a0a; border-color: #fff; }
+  [data-set-theme="voltage"] { background: #ffff00; }
+</style>

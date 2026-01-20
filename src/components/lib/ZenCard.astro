@@ -1,0 +1,65 @@
+---
+interface Props {
+  class?: string;
+  [key: string]: any;
+}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<div class={`zen-card ${className}`} {...rest}>
+  <slot />
+  <div class="zen-card-glow"></div>
+</div>
+
+<style>
+  .zen-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .zen-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    transform: translateY(-2px);
+  }
+
+  /* Simulated Spotlight Glow on Hover */
+  .zen-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.06), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.5s;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .zen-card:hover::before {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  // Add spotlight tracking
+  const cards = document.querySelectorAll('.zen-card');
+  cards.forEach(card => {
+    // @ts-ignore
+    card.addEventListener('mousemove', (e: MouseEvent) => {
+      // @ts-ignore
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      // @ts-ignore
+      card.style.setProperty('--mouse-x', `${x}px`);
+      // @ts-ignore
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
+</script>

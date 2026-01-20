@@ -1,0 +1,192 @@
+---
+---
+
+<section id="projects" class="section">
+  <div class="container">
+    <div class="section-header">
+      <zen-text variant="h2" gradient="blue" align="center">Featured Projects</zen-text>
+      <p class="subtitle">A selection of my recent work in software engineering.</p>
+    </div>
+
+    <div class="projects-grid">
+      <!-- Project 1 -->
+      <zen-flip-card direction="horizontal" trigger="hover" class="project-card">
+        <div slot="front" class="card-face">
+          <zen-spotlight-card border spotlight-color="rgba(139, 92, 246, 0.2)">
+            <div class="front-content">
+              <zen-icon name="server" size="48px" color="var(--zen-primary)"></zen-icon>
+              <zen-text variant="h3">Customer Service Platform</zen-text>
+              <zen-badge variant="primary">Java / Spring Boot</zen-badge>
+            </div>
+          </zen-spotlight-card>
+        </div>
+        <div slot="back" class="card-face">
+          <zen-card variant="glass" class="back-card">
+            <zen-text variant="h4">Overview</zen-text>
+            <p>Comprehensive backend system for Primeo Energie's customer service, handling complex ticketing and data flows.</p>
+            <div class="tech-stack">
+              <span class="tag">Spring Boot</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Kafka</span>
+            </div>
+            <div class="actions">
+              <a href="https://github.com/lukaspabst/customer-service" target="_blank">
+                <zen-button size="sm" variant="outline">View Code</zen-button>
+              </a>
+            </div>
+          </zen-card>
+        </div>
+      </zen-flip-card>
+
+      <!-- Project 2 -->
+      <zen-flip-card direction="vertical" trigger="hover" class="project-card">
+        <div slot="front" class="card-face">
+          <zen-spotlight-card border spotlight-color="rgba(56, 189, 248, 0.2)">
+            <div class="front-content">
+              <zen-icon name="globe" size="48px" color="#38bdf8"></zen-icon>
+              <zen-text variant="h3">Portfolio V2</zen-text>
+              <zen-badge variant="success">Next.js / 3D</zen-badge>
+            </div>
+          </zen-spotlight-card>
+        </div>
+        <div slot="back" class="card-face">
+          <zen-card variant="glass" class="back-card">
+            <zen-text variant="h4">Overview</zen-text>
+            <p>High-performance personal portfolio featuring interactive 3D elements, now reimagined with Zen UI.</p>
+            <div class="tech-stack">
+              <span class="tag">Next.js</span>
+              <span class="tag">Three.js</span>
+              <span class="tag">Tailwind</span>
+            </div>
+            <div class="actions">
+              <a href="https://github.com/lukaspabst/portfolio" target="_blank">
+                <zen-button size="sm" variant="outline">View Code</zen-button>
+              </a>
+            </div>
+          </zen-card>
+        </div>
+      </zen-flip-card>
+
+      <!-- Project 3 -->
+      <zen-flip-card direction="horizontal" trigger="hover" class="project-card">
+        <div slot="front" class="card-face">
+          <zen-spotlight-card border spotlight-color="rgba(234, 179, 8, 0.2)">
+            <div class="front-content">
+              <zen-icon name="chart-bar" size="48px" color="#eab308"></zen-icon>
+              <zen-text variant="h3">Finance Aggregator</zen-text>
+              <zen-badge variant="warning">Microservices</zen-badge>
+            </div>
+          </zen-spotlight-card>
+        </div>
+        <div slot="back" class="card-face">
+          <zen-card variant="glass" class="back-card">
+            <zen-text variant="h4">Overview</zen-text>
+            <p>REST API service aggregating financial data for real-time analysis and reporting.</p>
+            <div class="tech-stack">
+              <span class="tag">Java</span>
+              <span class="tag">Spring Security</span>
+              <span class="tag">Docker</span>
+            </div>
+            <div class="actions">
+              <a href="https://github.com/lukaspabst/finance-aggregator" target="_blank">
+                <zen-button size="sm" variant="outline">View Code</zen-button>
+              </a>
+            </div>
+          </zen-card>
+        </div>
+      </zen-flip-card>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .subtitle {
+    color: var(--zen-text-2);
+    margin-top: 0.5rem;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    padding: 1rem;
+  }
+
+  /* Ensure flip card takes full height of grid cell */
+  .project-card {
+    height: 450px;
+    width: 100%;
+  }
+
+  .card-face {
+    height: 100%;
+    width: 100%;
+  }
+
+  /* Make inner cards fill the face */
+  zen-spotlight-card, zen-card {
+    height: 100%;
+    display: block;
+  }
+
+  /* Zen Component styling overrides if needed */
+  zen-flip-card::part(base) {
+    border-radius: var(--zen-radius-lg);
+  }
+
+  .front-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 3rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .back-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem;
+    height: 100%;
+    background: rgba(10, 10, 15, 0.95) !important; /* Make back legible */
+    backdrop-filter: blur(20px);
+  }
+
+  p {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--zen-text-2);
+  }
+
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .tag {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    background: rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 100px;
+    color: #e2e8f0;
+  }
+
+  .actions {
+    margin-top: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+</style>

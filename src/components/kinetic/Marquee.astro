@@ -1,0 +1,61 @@
+---
+interface Props {
+  text: string;
+  direction?: 'left' | 'right';
+  speed?: number; // seconds
+}
+
+const { text, direction = 'left', speed = 20 } = Astro.props;
+---
+
+<div class="marquee-container">
+  <div class="marquee-content" style={`animation-duration: ${speed}s; animation-direction: ${direction === 'right' ? 'reverse' : 'normal'};`}>
+    <span class="marquee-item">{text}</span>
+    <span class="marquee-item">{text}</span>
+    <span class="marquee-item">{text}</span>
+    <span class="marquee-item">{text}</span>
+  </div>
+</div>
+
+<style>
+  .marquee-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    background: #000;
+  }
+
+  .marquee-content {
+    display: inline-flex;
+    animation: scroll linear infinite;
+  }
+
+  .marquee-item {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-right: 4rem;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.5);
+    transition: all 0.3s ease;
+  }
+  
+  .marquee-container:hover .marquee-item {
+    color: var(--k-text);
+    -webkit-text-stroke: 0px;
+  }
+
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); } /* Ensure this matches content width logic */
+  }
+  
+  /* Fix: To make it truly seamless we need 2 sets of content. 
+     The generic solution below assumes content is enough to fill screen. 
+     For production robustness we repeat it many times in HTML. */
+</style>

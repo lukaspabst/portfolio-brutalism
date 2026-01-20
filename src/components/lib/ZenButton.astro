@@ -1,0 +1,51 @@
+---
+interface Props {
+  variant?: 'solid' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const { variant = 'solid', size = 'md' } = Astro.props;
+---
+
+<button class={`zen-btn ${variant} ${size}`}>
+  <slot />
+</button>
+
+<style>
+  .zen-btn {
+    cursor: pointer;
+    border: none;
+    font-family: var(--font-main);
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Sizes */
+  .sm { padding: 0.25rem 0.75rem; font-size: 0.875rem; }
+  .md { padding: 0.5rem 1rem; font-size: 1rem; }
+  .lg { padding: 0.75rem 1.5rem; font-size: 1.125rem; }
+
+  /* Variants */
+  .solid {
+    background: white;
+    color: black;
+  }
+  .solid:hover {
+    background: #eee;
+    transform: scale(1.05);
+  }
+
+  .ghost {
+    background: transparent;
+    color: white;
+    border: 1px solid transparent;
+  }
+  .ghost:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.2);
+  }
+</style>

@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --font-main: 'Space Grotesk', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+/* Default Theme (Neo / Warm Brutalism) */
+:root,
+[data-theme="neo"] {
+  --color-bg: #FFFDF5;
+  --color-text: #000000;
+  --color-accent: #FFD93D;
+  --color-accent-2: #FF4D4D;
+  --color-border: #000000;
+  --color-surface: #FFFFFF;
+  --shadow-hard: 4px 4px 0px 0px #000000;
+  --border-thick: 3px solid #000000;
+}
+
+/* Swiss Theme (Cool Professional) */
+[data-theme="swiss"] {
+  --color-bg: #f0f2f5;
+  --color-text: #0b0b0b;
+  --color-accent: #0050ff;
+  --color-accent-2: #ff3b30;
+  --color-border: #000000;
+  --color-surface: #FFFFFF;
+  --shadow-hard: 4px 4px 0px 0px #0050ff;
+  --border-thick: 2px solid #000000;
+}
+
+/* Cyber Theme (Dark Mode) */
+[data-theme="cyber"] {
+  --color-bg: #0a0a0a;
+  --color-text: #ffffff;
+  --color-accent: #00ff9d;
+  /* Neon Mint */
+  --color-accent-2: #d6ff00;
+  /* Cyber Lime */
+  --color-border: #333333;
+  --color-surface: #121212;
+  --shadow-hard: 4px 4px 0px 0px #00ff9d;
+  --border-thick: 2px solid #333333;
+}
+
+/* Voltage Theme (High Contrast) */
+[data-theme="voltage"] {
+  --color-bg: #ffff00;
+  /* Yellow */
+  --color-text: #000000;
+  --color-accent: #ff00ff;
+  /* Magenta */
+  --color-accent-2: #00ffff;
+  /* Cyan */
+  --color-border: #000000;
+  --color-surface: #FFFFFF;
+  --shadow-hard: 6px 6px 0px 0px #000000;
+  --border-thick: 4px solid #000000;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  scroll-behavior: smooth;
+  cursor: auto;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+p {
+  font-family: var(--font-mono);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}

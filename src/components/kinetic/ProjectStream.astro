@@ -1,0 +1,94 @@
+---
+interface Props {
+  title: string;
+  role: string;
+  year: string;
+  image: string; // URL
+  href: string;
+}
+
+const { title, role, year, image, href } = Astro.props;
+---
+
+<a href={href} class="project-stream" target="_blank">
+  <div class="background" style={`background-image: url('${image}')`}></div>
+  <div class="overlay"></div>
+  
+  <div class="content">
+    <div class="meta">
+      <span class="year">{year}</span>
+      <span class="role">{role}</span>
+    </div>
+    <h2 class="title">{title}</h2>
+  </div>
+</a>
+
+<style>
+  .project-stream {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Not full screen to encourage scroll */
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--k-text);
+  }
+
+  .background {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    filter: grayscale(100%) brightness(0.6);
+  }
+
+  /* Parallax fake via scale on hover for now, real parallax needs JS */
+  .project-stream:hover .background {
+    transform: scale(1.05);
+    filter: grayscale(0%) brightness(0.8);
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, black, transparent 60%);
+    opacity: 0.8;
+  }
+
+  .content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 3rem 5%;
+  }
+
+  .meta {
+    display: flex;
+    gap: 2rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+  }
+
+  .title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 10vw, 8rem);
+    text-transform: uppercase;
+    line-height: 0.9;
+    margin: 0;
+    transition: transform 0.4s ease;
+    -webkit-text-stroke: 1px transparent;
+  }
+  
+  .project-stream:hover .title {
+    transform: translateX(20px);
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+  }
+</style>

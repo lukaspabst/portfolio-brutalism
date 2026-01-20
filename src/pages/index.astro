@@ -1,0 +1,317 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NeoCard from '../components/neo/NeoCard.astro';
+import NeoButton from '../components/neo/NeoButton.astro';
+
+const projects = [
+  {
+    title: "VOID CHAT",
+    role: "Fullstack Engineering",
+    year: "UPCOMING",
+    description: "Ephemeral, end-to-end encrypted messaging platform. Messages self-destruct upon reading.",
+    tags: ["Redis", "WebSockets", "Crypto API"],
+    href: "#"
+  },
+  {
+    title: "SYNTH FM",
+    role: "Creative Coding",
+    year: "UPCOMING",
+    description: "Infinite generative lo-fi radio station powered by Web Audio API and neural style transfer.",
+    tags: ["WebGL", "Tone.js", "AI Models"],
+    href: "#"
+  },
+  {
+    title: "NEO TASKER",
+    role: "Productivity Tool",
+    year: "UPCOMING",
+    description: "A keyboard-first, brutalist task management system for power users.",
+    tags: ["Tauri", "Rust", "React"],
+    href: "#"
+  }
+];
+---
+
+<Layout title="LUKAS PABST">
+  <main class="container">
+    
+    <header class="header">
+      <div class="logo">LUKAS PABST.</div>
+      <nav class="nav">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="mailto:lukas.pabst.business@outlook.de">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-text-container">
+        <h1 class="hero-title">HELLO.</h1>
+        <p class="hero-subtitle">
+          I'm Lukas Pabst. Software Developer & Creative Technologist from Germany. <br>
+          Expert in Java, Spring Boot, and modern Web Technologies.
+        </p>
+      </div>
+      <div class="hero-actions">
+        <NeoButton href="#work" variant="primary">See Work</NeoButton>
+        <NeoButton href="https://github.com/lukaspabst">GitHub</NeoButton>
+      </div>
+    </section>
+    
+    <div class="divider"></div>
+
+    <section id="work" class="section">
+      <div class="section-header">
+        <h2 class="section-title">SELECTED WORK</h2>
+        <span class="mono">(2023 — 2024)</span>
+      </div>
+
+      <div class="grid">
+        {projects.map((project) => (
+          <NeoCard>
+            <div class="card-header">
+              <span class="mono">{project.role}</span>
+              <span class="mono">{project.year}</span>
+            </div>
+            <h3 class="card-title">{project.title}</h3>
+            <p class="card-desc">{project.description}</p>
+            <div class="tags">
+              {project.tags.map(tag => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+            <div class="card-action">
+              <NeoButton href={project.href} variant="accent">View Project</NeoButton>
+            </div>
+          </NeoCard>
+        ))}
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="about" class="section">
+      <div class="section-header">
+        <h2 class="section-title">ABOUT ME</h2>
+        <span class="mono">(EST. 2001)</span>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="big-text">
+            I AM A SOFTWARE DEVELOPER BASED IN <span class="highlight">SISSACH, SWITZERLAND</span>.
+            CURRENTLY BUILDING SOLUTIONS AT <span class="highlight">PRIMEO ENERGIE</span>.
+          </p>
+          <p class="bio-text">
+            Passionate about backend systems and creative frontend experiences. 
+            Born on 23.03.2001. Fluent in German and English. 
+            When not coding, I'm into Sports and Reading.
+          </p>
+        </div>
+
+        <div class="skills-container">
+          <h3 class="skills-title mono">STACK</h3>
+          <ul class="skills-list">
+            <li>Java / Spring Boot</li>
+            <li>TypeScript / Next.js</li>
+            <li>PostgreSQL / Kafka</li>
+            <li>Docker / Cloud</li>
+            <li>Three.js / WebGL</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <h2 class="footer-text">LET'S BUILD SOMETHING.</h2>
+      <NeoButton href="mailto:lukas.pabst.business@outlook.de" variant="primary">EMAIL ME</NeoButton>
+    </footer>
+
+  </main>
+</Layout>
+
+<style>
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+    border-bottom: var(--border-thick);
+    margin-bottom: 4rem;
+  }
+  
+  .logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.05em;
+  }
+  
+  .nav {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-weight: 700;
+  }
+  
+  .nav a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+  }
+
+  .hero {
+    padding: 4rem 0 8rem;
+  }
+  
+  .hero-title {
+    font-size: clamp(6rem, 20vw, 15rem);
+    line-height: 0.8;
+    letter-spacing: -0.04em;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.5rem;
+    max-width: 600px;
+    margin-bottom: 3rem;
+  }
+  
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .divider {
+    height: 3px;
+    background: black;
+    width: 100%;
+    margin: 2rem 0;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+  
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 3rem;
+    border-bottom: var(--border-thick);
+    padding-bottom: 1rem;
+  }
+  
+  .section-title {
+    font-size: 3rem;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    border-bottom: 1px solid black;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+  }
+  
+  .card-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .card-desc {
+    margin-bottom: 2rem;
+    flex-grow: 1;
+  }
+  
+  .tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  
+  .tag {
+    background: #000;
+    color: #FFF;
+    padding: 0.2rem 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+
+  .card-action {
+    margin-top: auto;
+  }
+
+  .footer {
+    padding: 8rem 0;
+    border-top: var(--border-thick);
+    text-align: center;
+  }
+  
+  .footer-text {
+    font-size: clamp(3rem, 10vw, 6rem);
+    margin-bottom: 3rem;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .big-text {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .highlight {
+    background: var(--color-accent);
+    padding: 0 0.2em;
+  }
+
+  .bio-text {
+    font-size: 1.1rem;
+    max-width: 50ch;
+  }
+
+  .skills-title {
+    font-size: 1.2rem;
+    border-bottom: 3px solid black;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .skills-list li {
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+  }
+
+  .skills-list li:last-child {
+    border-bottom: none;
+  }
+
+  @media (max-width: 768px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>

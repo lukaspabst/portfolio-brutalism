@@ -1,0 +1,74 @@
+---
+---
+<!-- Map Card -->
+<div class="bento-card map-card">
+  <zen-spotlight-card spotlight-color="rgba(56, 189, 248, 0.2)" border>
+    <div class="map-content">
+      <zen-text variant="h4" class="location-text">Mühlhausen, Germany</zen-text>
+      <!-- Abstract map visual could go here, for now a gradient placeholder -->
+    </div>
+  </zen-spotlight-card>
+</div>
+
+<!-- Socials Card -->
+<div class="bento-card social-card" style="display: flex; flex-direction: column; gap: 0.5rem; background: transparent; border: none; overflow: visible;">
+  <!-- We split this into 2 small cards for the grid if needed, or 1 card with links -->
+  
+  <a href="https://www.xing.com/profile/Lukas_Pabst102" target="_blank" class="social-btn xing">
+    <zen-icon name="briefcase" size="20px"></zen-icon> Xing
+  </a>
+  
+  <a href="mailto:lukas.pabst.business@outlook.de" class="social-btn mail">
+    <zen-icon name="mail" size="20px"></zen-icon> Email
+  </a>
+</div>
+
+<style>
+  .map-card {
+    grid-column: span 1;
+    grid-row: span 1;
+    background: linear-gradient(135deg, #1e1b4b, #0f172a);
+    min-height: 180px;
+  }
+
+  .map-content {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+  }
+
+  .location-text {
+    position: relative;
+    z-index: 2;
+  }
+
+  .social-card {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .social-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--zen-bg-1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--zen-radius-md);
+    color: var(--zen-text-2);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .social-btn:hover {
+    background: var(--zen-bg-2);
+    color: var(--zen-text-1);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .xing:hover { border-color: #006567; color: #006567; }
+  .mail:hover { border-color: var(--zen-primary); color: var(--zen-primary); }
+
+</style>

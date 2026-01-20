@@ -1,0 +1,93 @@
+---
+---
+
+<div class="bento-card experience-card">
+  <zen-spotlight-card spotlight-color="rgba(255, 255, 255, 0.05)" border>
+    <div class="content">
+      <div class="header">
+        <zen-text variant="h4">Experience</zen-text>
+        <zen-icon name="briefcase" size="20px" style="opacity:0.5"></zen-icon>
+      </div>
+
+      <div class="list">
+        <!-- Item 1 -->
+        <div class="item">
+          <div class="year">2024</div>
+          <div class="line"></div>
+          <div class="details">
+            <div class="role">Software Developer</div>
+            <div class="company">Primeo Energie AG</div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="item">
+          <div class="year">2023</div>
+          <div class="line"></div>
+          <div class="details">
+            <div class="role">Backend Dev</div>
+            <div class="company">Finanz-Data GmbH</div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="item">
+          <div class="year">2022</div>
+          <div class="line"></div>
+          <div class="details">
+            <div class="role">B.Sc. Student</div>
+            <div class="company">University of Applied Sciences</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </zen-spotlight-card>
+</div>
+
+<style>
+  .experience-card {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+
+  zen-spotlight-card { height: 100%; display: block; }
+
+  .content { padding: 1.5rem; height: 100%; display: flex; flex-direction: column; }
+
+  .header { 
+    display: flex; justify-content: space-between; align-items: center; 
+    margin-bottom: 2rem; 
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .list { display: flex; flex-direction: column; gap: 0; flex-grow: 1; }
+
+  .item { display: flex; gap: 1rem; position: relative; padding-bottom: 2rem; }
+  .item:last-child { padding-bottom: 0; }
+
+  .year {
+    font-family: monospace;
+    color: var(--zen-text-2);
+    font-size: 0.85rem;
+    padding-top: 0.2rem;
+    width: 40px;
+    flex-shrink: 0;
+  }
+
+  .line {
+    width: 1px;
+    background: rgba(255,255,255,0.1);
+    position: absolute;
+    left: 48px;
+    top: 5px;
+    bottom: 0;
+  }
+  
+  .item:last-child .line { display: none; }
+
+  .details { padding-left: 0.5rem; }
+
+  .role { color: var(--zen-text-1); font-weight: 500; font-size: 0.95rem; margin-bottom: 0.25rem; }
+  .company { font-size: 0.85rem; color: var(--zen-text-2); }
+</style>

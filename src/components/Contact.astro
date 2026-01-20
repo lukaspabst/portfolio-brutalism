@@ -1,0 +1,76 @@
+---
+---
+
+<section id="contact" class="section">
+  <div class="container">
+    <div class="contact-wrapper">
+      <zen-aurora-border variant="ocean" border-width="2" blur-amount="30">
+        <zen-card variant="glass" class="contact-card">
+          <div class="card-content">
+            <zen-text variant="h2" align="center" style="margin-bottom: 0.5rem;">Get in Touch</zen-text>
+            <p class="subtitle">
+              Interested in working together? Send me a message or email me at <span class="highlight">lukas.pabst.business@outlook.de</span>
+            </p>
+
+            <form class="contact-form" action="mailto:lukas.pabst.business@outlook.de" method="POST" enctype="text/plain">
+              <div class="form-group">
+                <zen-input label="Name" placeholder="Your Name" name="name" required></zen-input>
+              </div>
+              
+              <div class="form-group">
+                <zen-input label="Email" type="email" placeholder="your@email.com" name="email" required></zen-input>
+              </div>
+              
+              <div class="form-group">
+                <zen-textarea label="Message" rows="5" placeholder="How can I help you?" name="message" required></zen-textarea>
+              </div>
+
+              <div class="form-actions">
+                <zen-morph-button variant="liquid" size="lg" type="submit">
+                  Send Message
+                </zen-morph-button>
+              </div>
+            </form>
+          </div>
+        </zen-card>
+      </zen-aurora-border>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .contact-card {
+    background: rgba(15, 7, 40, 0.6); /* Slightly darker glass */
+  }
+
+  .card-content {
+    padding: 2.5rem;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: var(--zen-text-2);
+    margin-bottom: 2.5rem;
+  }
+
+  .highlight {
+    color: var(--zen-primary);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-actions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+</style>

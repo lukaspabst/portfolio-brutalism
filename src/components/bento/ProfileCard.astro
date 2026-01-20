@@ -1,0 +1,161 @@
+---
+---
+<!-- Profile Card: Spans 2x2 on desktop -->
+<div class="bento-card profile-card">
+  <zen-spotlight-card spotlight-color="rgba(167, 139, 250, 0.15)" border>
+    <div class="content">
+      <div class="header">
+        <div class="avatar-wrapper">
+          <zen-avatar src="https://github.com/lukaspabst.png" alt="Lukas Pabst" size="lg"></zen-avatar>
+          <div class="glow-effect"></div>
+        </div>
+        
+        <div class="status-badge">
+          <span class="pulse"></span>
+          <span>Open to Work</span>
+        </div>
+      </div>
+      
+      <div class="info">
+        <zen-text variant="h1" class="name">Lukas Pabst</zen-text>
+        <zen-text variant="h3" class="title">Software Developer</zen-text>
+        <p class="bio">
+          Building scalable backends & premium frontends.<br>
+          Based in Switzerland 🇨🇭
+        </p>
+      </div>
+
+      <div class="footer">
+        <a href="https://github.com/lukaspabst" target="_blank" class="action-btn glass">
+          <zen-icon name="github" size="18px"></zen-icon> GitHub
+        </a>
+        <a href="mailto:lukas.pabst.business@outlook.de" class="action-btn primary">
+          Contact Me <zen-icon name="arrow-right" size="16px"></zen-icon>
+        </a>
+      </div>
+    </div>
+  </zen-spotlight-card>
+</div>
+
+<style>
+  .profile-card {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  zen-spotlight-card { height: 100%; display: block; }
+
+  .content {
+    padding: 2.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .avatar-wrapper {
+    position: relative;
+  }
+
+  zen-avatar { --zen-avatar-size: 88px; }
+
+  .glow-effect {
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.4) 0%, transparent 70%);
+    z-index: -1;
+    opacity: 0.6;
+    border-radius: 50%;
+  }
+
+  .status-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(16, 185, 129, 0.1);
+    color: #34d399;
+    padding: 0.4rem 0.85rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+  }
+
+  .pulse {
+    width: 6px;
+    height: 6px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #34d399;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.4); }
+    70% { box-shadow: 0 0 0 6px rgba(52, 211, 153, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+  }
+
+  .name {
+    background: linear-gradient(to right, #fff, #cbd5e1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+  }
+
+  .title {
+    color: var(--zen-primary);
+    margin-bottom: 1.25rem;
+    font-family: var(--font-display);
+  }
+
+  .bio { font-size: 1.15rem; color: var(--zen-text-2); font-weight: 300; }
+
+  .footer { display: flex; gap: 1rem; margin-top: 2rem; }
+
+  .action-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.25rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .action-btn.glass {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+
+  .action-btn.glass:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .action-btn.primary {
+    background: var(--zen-primary);
+    color: #0f0728;
+    border: 1px solid var(--zen-primary);
+  }
+
+  .action-btn.primary:hover {
+    background: #c4b5fd;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .profile-card { grid-column: span 1; }
+  }
+</style>

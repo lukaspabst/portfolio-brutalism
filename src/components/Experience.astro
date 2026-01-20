@@ -1,0 +1,182 @@
+---
+---
+<section id="experience" class="section">
+  <div class="container">
+    <div class="section-header">
+      <zen-text variant="h2" gradient="aurora" align="center">Experience & Education</zen-text>
+      <div class="divider"></div>
+    </div>
+
+    <div class="timeline">
+      <!-- Job 1 -->
+      <div class="timeline-item left">
+        <zen-tilt-card intensity="15" glare border variant="glass">
+          <div class="card-content">
+            <div class="card-header">
+              <zen-text variant="h4">Software Developer</zen-text>
+              <zen-badge variant="primary">2024 - Present</zen-badge>
+            </div>
+            <zen-text variant="h5" color="secondary">Primeo Energie AG</zen-text>
+            <zen-text variant="body-sm" italic>Sissach, Switzerland</zen-text>
+            <p class="description">
+              Developing modern energy solutions and software systems. Working on scalable backend architectures and integration patterns.
+            </p>
+          </div>
+        </zen-tilt-card>
+      </div>
+
+      <!-- Job 2 -->
+      <div class="timeline-item right">
+        <zen-tilt-card intensity="15" glare border variant="glass">
+          <div class="card-content">
+            <div class="card-header">
+              <zen-text variant="h4">Software Developer</zen-text>
+              <zen-badge variant="neutral">Pre 2024</zen-badge>
+            </div>
+            <zen-text variant="h5" color="secondary">Finanz-Data GmbH</zen-text>
+            <zen-text variant="body-sm" italic>Gotha, Germany</zen-text>
+            <p class="description">
+              Backend development with Java, Spring Boot, and REST services. Implementation of secure financial data processing pipelines.
+            </p>
+          </div>
+        </zen-tilt-card>
+      </div>
+
+      <!-- Education -->
+      <div class="timeline-item left centered-item">
+        <zen-aurora-border variant="rainbow" blur-amount="20">
+          <zen-card class="edu-card">
+            <div class="card-content">
+              <div class="card-header">
+                <zen-text variant="h4">Bachelor Wirtschaftsinformatik</zen-text>
+                <zen-icon name="academic-cap" variant="filled"></zen-icon>
+              </div>
+              <zen-text variant="h5">Hochschule (University of Applied Sciences)</zen-text>
+              <p class="description">
+                Focus on Software Engineering and Business Processes. Graduated with honors.
+              </p>
+            </div>
+          </zen-card>
+        </zen-aurora-border>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .divider {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--zen-primary), transparent);
+    margin: 1rem auto;
+    border-radius: 2px;
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    padding: 2rem 0;
+  }
+
+  /* Vertical Line */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, transparent, var(--zen-primary), transparent);
+    transform: translateX(-50%);
+    border-radius: 2px;
+  }
+
+  .timeline-item {
+    width: 45%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .timeline-item.left {
+    align-self: flex-start;
+  }
+
+  .timeline-item.right {
+    align-self: flex-end;
+  }
+
+  /* Dot on the timeline */
+  .timeline-item::after {
+    content: '';
+    position: absolute;
+    top: 30px;
+    width: 16px;
+    height: 16px;
+    background: var(--zen-bg-0);
+    border: 3px solid var(--zen-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--zen-primary);
+  }
+
+  .timeline-item.left::after {
+    right: -5.55rem; /* (50% gap + half line + padding) approx adjustments needed */
+    right: calc(-10% - 21px); /* Dynamic adjustment based on layout */
+  }
+  
+  /* Hardcode positioning for standard centering */
+  .timeline-item.left::after {
+    right: -60px; /* Adjust based on flex gap */
+  }
+
+  /* Actually, let's use a simpler approach for the dots relative to the center line */
+  /* Remove pseudo-element from item and rely on visual alignment or specific connectors if needed. 
+     For now, let's just make the cards look great. */
+  .timeline-item::after { display: none; }
+
+
+  .centered-item {
+    align-self: center;
+    width: 60%;
+    margin-top: 4rem;
+  }
+
+  .card-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .description {
+    margin-top: 1rem;
+    color: var(--zen-text-2);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .timeline::before {
+      left: 20px;
+    }
+    
+    .timeline-item {
+      width: 100%;
+      padding-left: 50px !important;
+    }
+
+    .centered-item {
+      width: 100%;
+      padding-left: 0 !important;
+    }
+  }
+</style>
