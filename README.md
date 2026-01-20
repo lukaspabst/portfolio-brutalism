@@ -1,43 +1,53 @@
-# Astro Starter Kit: Minimal
+# LUKAS PABST — NEO BRUTALIST PORTFOLIO
 
-```sh
-npm create astro@latest -- --template minimal
+A high-performance, neo-brutalist portfolio website built with **Astro**.
+Features a custom heavy-contrast design system, theme switcher, and persistent preferences.
+
+## ⚡ Tech Stack
+
+- **Framework**: [Astro](https://astro.build)
+- **Styling**: Vanilla CSS (Global Variables + Scoped)
+- **Deployment**: Docker (Node Build -> Nginx Alpine)
+- **State**: Vanilla JS (LocalStorage for Theme persistence)
+
+## 🎨 Themes
+
+Includes a custom **Theme Switcher** with 4 distinct aesthetics:
+- **Cyber** (Default): Dark Mode, Neon Mint accents.
+- **Neo**: Warm White, Bold Yellow.
+- **Swiss**: Cool Grey, Klein Blue, Refined.
+- **Voltage**: High Contrast Yellow/Magenta.
+
+## 🚀 Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🐳 Docker Production Build
 
-## 🚀 Project Structure
+The project includes a multi-stage `Dockerfile` (Node.js builder -> Nginx Alpine).
 
-Inside of your Astro project, you'll see the following folders and files:
+```bash
+# Build image
+docker build -t portfolio .
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+# Run container
+docker run -p 80:80 portfolio
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 📁 Project Structure
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```
+src/
+├── components/
+│   └── neo/           # Neo-brutalist UI components (Card, Button, Switcher)
+├── layouts/           # Global layout with Theme logic
+├── pages/             # Route definitions
+└── styles/
+    └── global.css     # CSS Variables & Theme Definitions
+```
